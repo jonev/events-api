@@ -8,6 +8,7 @@ import org.springframework.web.server.ResponseStatusException;
 import statistics.eventsapi.dto.Event;
 import statistics.eventsapi.service.EventService;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping("events")
 public class EventController {
