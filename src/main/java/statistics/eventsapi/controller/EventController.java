@@ -1,5 +1,7 @@
 package statistics.eventsapi.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -12,6 +14,8 @@ import statistics.eventsapi.service.EventService;
 @RestController
 @RequestMapping("events")
 public class EventController {
+
+    Logger logger = LoggerFactory.getLogger(getClass());
 
     @Value("${controller.clientId}")
     private String allowedClientId;
@@ -30,6 +34,7 @@ public class EventController {
 
     private void isValidClient(String clientId) {
         if (!clientId.equals(allowedClientId)) {
+            logger.error("Unauthorized client trying to use the API: " + clientId);
             throw new ResponseStatusException(HttpStatus.FORBIDDEN);
         }
     }
