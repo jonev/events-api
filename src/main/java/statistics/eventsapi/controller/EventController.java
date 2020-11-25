@@ -10,6 +10,8 @@ import org.springframework.web.server.ResponseStatusException;
 import statistics.eventsapi.dto.Event;
 import statistics.eventsapi.service.EventService;
 
+import javax.validation.Valid;
+
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping("events")
@@ -27,7 +29,7 @@ public class EventController {
     }
 
     @PostMapping
-    public void getEvent(@RequestHeader("X-Client-Id") String clientId, @RequestBody Event event) {
+    public void getEvent(@RequestHeader("X-Client-Id") String clientId, @RequestBody @Valid Event event) {
         isValidClient(clientId);
         eventService.save(event);
     }
