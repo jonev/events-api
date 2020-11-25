@@ -1,0 +1,6 @@
+.git
+.idea/
+build/
+dev-database/
+push.sh
+gradlew.bat
