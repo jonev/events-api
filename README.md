@@ -14,13 +14,11 @@ Manually edit data on http://localhost:8081
 User: root  
 Password: example  
 
-## Push app to docker hub
-```
-./push.sh
-```
+## Build
+Docker image is build on [docker hub](https://hub.docker.com/repository/docker/jonev/events-api).
 
 ## Run in production
-Push to docker hub, change value of MYSQL_PASSWORD and CLIENT_ID in ./docker-compose.yaml
+Change value of MYSQL_PASSWORD and CLIENT_ID in ./docker-compose.yaml
 then run with:
 
 ```
