@@ -2,7 +2,6 @@ package statistics.eventsapi.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import statistics.eventsapi.dto.Event;
 import statistics.eventsapi.repository.EventRepository;
 
 @Service

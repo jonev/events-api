@@ -5,12 +5,15 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import statistics.eventsapi.dto.Event;
 import statistics.eventsapi.service.EventService;
 
 import javax.validation.Valid;
+
+import static statistics.eventsapi.service.ModelConverter.convert;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
@@ -28,10 +31,11 @@ public class EventController {
         this.eventService = eventService;
     }
 
-    @PostMapping
-    public void getEvent(@RequestHeader("X-Client-Id") String clientId, @RequestBody @Valid Event event) {
+    @PostMapping(value = "/", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void getEvent(@RequestHeader("X-Client-Id") String clientId,
+                         @RequestBody @Valid Event event) {
         isValidClient(clientId);
-        eventService.save(event);
+        eventService.save(convert(event));
     }
 
     private void isValidClient(String clientId) {

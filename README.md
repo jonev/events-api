@@ -43,3 +43,8 @@ curl --location --request POST 'http://localhost:9000/events' \
 ## Security
 `X-Client-Id` must be contained in the client application, 
 which means that the API is not secure.
+
+## Documentation (only local access)
+Open Api v3 documentation added.
+Json file [here.](http://localhost:8080/api-docs)
+Gui [here](http://localhost:8080/api-docs-ui)
