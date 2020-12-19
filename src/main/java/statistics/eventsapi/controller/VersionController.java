@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("version")
 public class VersionController {
 
-    @Value("${version}")
+    @Value("${app.version}")
     private String version;
 
     @GetMapping(produces = MediaType.TEXT_PLAIN_VALUE)
