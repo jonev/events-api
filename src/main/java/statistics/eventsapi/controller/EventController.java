@@ -31,7 +31,7 @@ public class EventController {
         this.eventService = eventService;
     }
 
-    @PostMapping(value = "/", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public void getEvent(@RequestHeader("X-Client-Id") String clientId,
                          @RequestBody @Valid Event event) {
         isValidClient(clientId);
