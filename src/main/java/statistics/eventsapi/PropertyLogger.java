@@ -28,7 +28,8 @@ public class PropertyLogger {
                 .map(ps -> ((EnumerablePropertySource) ps).getPropertyNames())
                 .flatMap(Arrays::stream)
                 .distinct()
-                .filter(prop -> !(prop.contains("credentials") || prop.contains("password")))
+                .filter(prop -> !(prop.toLowerCase().contains("credentials") ||
+                        prop.toLowerCase().contains("password")))
                 .forEach(prop -> LOGGER.info("{}: {}", prop, env.getProperty(prop)));
         LOGGER.info("===========================================");
     }
