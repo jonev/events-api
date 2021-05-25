@@ -1,9 +1,9 @@
-FROM openjdk:8-jdk-alpine as builder
+FROM openjdk:16-jdk-alpine as builder
 COPY . /app
 WORKDIR /app
 RUN ./gradlew build --no-daemon
 
-FROM openjdk:8-jre-alpine
+FROM openjdk:16-jdk-alpine
 ENV spring_profiles_active=prod
 RUN mkdir /app
 RUN addgroup -S prodgroup && adduser -S prod -G prodgroup
