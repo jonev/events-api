@@ -1,4 +1,4 @@
-FROM openjdk:8-jdk-alpine as builder
+FROM openjdk:19-jdk-alpine as builder
 COPY . /app
 WORKDIR /app
 RUN ./gradlew build --no-daemon
